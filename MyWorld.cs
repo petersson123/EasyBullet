@@ -11,8 +11,6 @@ namespace EasyStart
     {
         public MyWorld() : base(600, 800)
         {
-            GameArt.Add("bluerock");
-
             BackgroundTileName = "bluerock";
         }  
     }
