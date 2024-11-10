@@ -11,6 +11,7 @@ namespace EasyStart
     {
         public MyWorld() : base(600, 800)
         {
+            // Tile background with the file "bluerock" in the Content folder.
             BackgroundTileName = "bluerock";
         }  
     }
