@@ -27,15 +27,15 @@ namespace EasyShooter
             {
                 Turn(5);
             }
-
-
         }
         private void Shoot()
         {
             Shot shot = new Shot();
+            // Shoot in the direction the bee is facing.
             shot.Rotation = this.Rotation;
-
             World.Add(shot, "red-draught", X, Y);
+            // Start the shot in front of the bee
+            shot.Move(50);
         }
     }
 }
