@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyMonoGame;
 
-namespace EasyStart
+namespace EasyShooter
 {
     internal class MyWorld : World
     {
