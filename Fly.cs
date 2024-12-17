@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using EasyMonoGame;
 using Microsoft.Xna.Framework.Input;
 
-namespace EasyShooter
+namespace EasyBullet
 {
     internal class Fly : Actor
     {
         public override void Act()
         {
             
-            if (IsTouching(typeof(Shot)))
+            if (IsTouching(typeof(Bullet)))
             {
                 World.RemoveActor(this);
             }

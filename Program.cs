@@ -1,5 +1,5 @@
 ﻿using EasyMonoGame;
-using EasyShooter; // The namespace of your game.
+using EasyBullet; // The namespace of your game.
 // Set starting world.
 EasyGame.Instance.ActiveWorld = new MyWorld();
 // Run the game.
