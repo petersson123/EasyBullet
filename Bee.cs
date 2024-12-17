@@ -10,7 +10,11 @@ namespace EasyBullet
 {
     internal class Bee : Actor
     {
-        
-        
+
+        public override void Act()
+        {
+
+            this.TurnTowards(Mouse.GetState().X, Mouse.GetState().Y);
+        }
     }
 }
