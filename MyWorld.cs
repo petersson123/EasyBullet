@@ -18,6 +18,13 @@ namespace EasyBullet
 
             this.Add(new Bee(), "bee", Width / 2, Height / 2);
 
+            for (int i = 0; i < 20; ++i)
+            {
+                float x = EasyGame.Instance.Random.Next(Width);
+                float y = EasyGame.Instance.Random.Next(Height);
+                this.Add(new Fly(), "fly", x, y);
+            }
+
 
 
         }
