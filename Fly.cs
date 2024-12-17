@@ -12,6 +12,8 @@ namespace EasyBullet
     {
         public override void Act()
         {
+            Turn(EasyGame.Instance.Random.Next(-30, 30));
+            Move(3);
             
             if (IsTouching(typeof(Bullet)))
             {

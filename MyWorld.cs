@@ -10,6 +10,8 @@ namespace EasyBullet
 {
     internal class MyWorld : World
     {
+        private int score = 0;
+        private const int START_FLY_COUNT = 20;
 
         public MyWorld() : base(800, 800)
         {
@@ -18,7 +20,7 @@ namespace EasyBullet
 
             this.Add(new Bee(), "bee", Width / 2, Height / 2);
 
-            for (int i = 0; i < 20; ++i)
+            for (int i = 0; i < START_FLY_COUNT; ++i)
             {
                 float x = EasyGame.Instance.Random.Next(Width);
                 float y = EasyGame.Instance.Random.Next(Height);
@@ -27,6 +29,14 @@ namespace EasyBullet
 
 
 
+        }
+
+        public override void Act()
+        {
+            List<Actor> flies = GetActors(typeof(Fly));
+            int numFlies = flies.Count;
+            score = START_FLY_COUNT - numFlies;
+            ShowText("Score: " + score, 100, 100);
         }
 
 
