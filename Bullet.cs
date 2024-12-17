@@ -9,7 +9,10 @@ namespace EasyBullet
 {
     internal class Bullet : Actor
     {
-
+        public override void Act()
+        {
+            Move(20);
+        }
 
     }
 }
