@@ -12,6 +12,10 @@ namespace EasyBullet
         public override void Act()
         {
             Move(20);
+            if (this.IsAtEdge())
+            {
+                World.RemoveActor(this);
+            }
         }
 
     }
