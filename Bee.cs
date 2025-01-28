@@ -11,11 +11,14 @@ namespace EasyBullet
     internal class Bee : Actor
     {
         private int timeToShoot = 0;
+        private int lives = 3;
+
         public override void Act()
         {
             timeToShoot -= 1;
 
             this.TurnTowards(Mouse.GetState().X, Mouse.GetState().Y);
+            
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 if (timeToShoot <= 0)
@@ -25,6 +28,36 @@ namespace EasyBullet
                 }
                 
             }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.D)) 
+            {
+                X = X + 3;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.A))
+            {
+                X = X - 3;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.W))
+            {
+                Y = Y - 3;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.S))
+            {
+                Y = Y + 3;
+            }
+           if (IsTouching(typeof(Fly)))
+                {
+                RemoveTouching(typeof(Fly));
+                lives -=1;
+                List<Actor> hearts = World.GetActors(typeof(Heart));
+                World.RemoveActor(hearts[0]);
+                if (lives == 0)
+                {
+                    World.ShowText("Game over", 500, 500);
+                    EasyGame.Instance.IsPaused = true;
+                }
+            }
+
         }
         private void Shoot()
         {

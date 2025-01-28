@@ -20,6 +20,11 @@ namespace EasyBullet
 
             this.Add(new Bee(), "bee", Width / 2, Height / 2);
 
+            for (int i = 0; i < 3; i++)
+            {
+                this.Add(new Heart(), "red-draught", 50 + 30 * i, 50);
+            }
+
             for (int i = 0; i < START_FLY_COUNT; ++i)
             {
                 float x = EasyGame.Instance.Random.Next(Width);
@@ -34,9 +39,13 @@ namespace EasyBullet
         public override void Act()
         {
             List<Actor> flies = GetActors(typeof(Fly));
-            int numFlies = flies.Count;
-            score = START_FLY_COUNT - numFlies;
-            ShowText("Score: " + score, 100, 100);
+            if (flies != null)
+            {
+                int numFlies = flies.Count;
+                score = START_FLY_COUNT - numFlies;
+                ShowText("Score: " + score, 100, 100);
+            }
+            
         }
 
 
