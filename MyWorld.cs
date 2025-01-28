@@ -11,14 +11,16 @@ namespace EasyBullet
     internal class MyWorld : World
     {
         private int score = 0;
-        private const int START_FLY_COUNT = 20;
+        private const int START_FLY_COUNT = 8;
+        private const int START_FLY2_COUNT = 5;
+        private Bee player;
 
         public MyWorld() : base(800, 800)
         {
             // Tile background with the file "bluerock" in the Content folder.
             BackgroundTileName = "bluerock";
-
-            this.Add(new Bee(), "bee", Width / 2, Height / 2);
+            player = new Bee();
+            this.Add(player, "bee", Width / 2, Height / 2);
 
             for (int i = 0; i < 3; i++)
             {
@@ -30,6 +32,12 @@ namespace EasyBullet
                 float x = EasyGame.Instance.Random.Next(Width);
                 float y = EasyGame.Instance.Random.Next(Height);
                 this.Add(new Fly(), "fly", x, y);
+            }
+            for (int i = 0; i < START_FLY2_COUNT; ++i)
+            {
+                float x = EasyGame.Instance.Random.Next(Width);
+                float y = EasyGame.Instance.Random.Next(Height);
+                this.Add(new Fly2(player), "fly", x, y);
             }
 
 

@@ -18,7 +18,7 @@ namespace EasyBullet
             timeToShoot -= 1;
 
             this.TurnTowards(Mouse.GetState().X, Mouse.GetState().Y);
-            
+
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 if (timeToShoot <= 0)
@@ -26,10 +26,10 @@ namespace EasyBullet
                     Shoot();
                     timeToShoot = 20;
                 }
-                
+
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.D)) 
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
                 X = X + 3;
             }
@@ -45,10 +45,10 @@ namespace EasyBullet
             {
                 Y = Y + 3;
             }
-           if (IsTouching(typeof(Fly)))
-                {
+            if (IsTouching(typeof(Fly)))
+            {
                 RemoveTouching(typeof(Fly));
-                lives -=1;
+                lives -= 1;
                 List<Actor> hearts = World.GetActors(typeof(Heart));
                 World.RemoveActor(hearts[0]);
                 if (lives == 0)
@@ -56,8 +56,21 @@ namespace EasyBullet
                     World.ShowText("Game over", 500, 500);
                     EasyGame.Instance.IsPaused = true;
                 }
-            }
 
+            }
+            if (IsTouching(typeof(Fly2)))
+            {
+                RemoveTouching(typeof(Fly2));
+                lives -= 1;
+                List<Actor> hearts = World.GetActors(typeof(Heart));
+                World.RemoveActor(hearts[0]);
+                if (lives == 0)
+                {
+                    World.ShowText("Game over", 500, 500);
+                    EasyGame.Instance.IsPaused = true;
+                }
+
+            }
         }
         private void Shoot()
         {

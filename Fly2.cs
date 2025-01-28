@@ -8,14 +8,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace EasyBullet
 {
-    internal class Fly : Actor
+    internal class Fly2 : Actor
     {
+        private Bee player;
+        public Fly2(Bee mittBee)
+        {
+            player = mittBee;  
+    }
         public override void Act()
         {
-            Turn(EasyGame.Instance.Random.Next(-30, 30));
-            //TurnTowards(500, 500);
-            Move(3);
-            
+           
+            TurnTowards(player.X,player.Y);
+            Move(1);
+
             if (IsTouching(typeof(Bullet)))
             {
                 World.RemoveActor(this);
@@ -23,5 +28,5 @@ namespace EasyBullet
         }
 
     }
-    
+
 }
